@@ -1,3 +1,76 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 30px auto;
+    background-color: white;
+    color: #4a4a4a;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.btn {
+    background-color: #0056b3;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background-color: #004085;
+}
+
+.radio-group, .checkbox-group {
+    padding: 0;
+    margin: 8px 0;
+}
+
+.radio-group label, .checkbox-group label {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.radio-group input, .checkbox-group input {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
 .btn-buy, .btn-whatsapp {
     background-color: #28a745; /* Cor de fundo */
     color: white; /* Cor do texto */
@@ -27,4 +100,22 @@
 
 .video-container {
     margin: 20px 0;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+    
+    .btn-buy, .btn-whatsapp {
+        font-size: 14px; /* Reduzir o tamanho da fonte para telas menores */
+        padding: 10px 15px; /* Ajustar o espaçamento interno */
+    }
+    
+    .whatsapp-icon {
+        width: 20px; /* Ajustar o tamanho do ícone para telas menores */
+        height: 20px; /* Ajustar o tamanho do ícone para telas menores */
+    }
 }
