@@ -6,8 +6,7 @@ $(document).ready(function() {
     $('#initialForm').on('submit', function(event) {
         event.preventDefault();
         userName = $('#name').val();
-        
-        // Ajustar a escala de exibição
+
         var viewport = document.querySelector("meta[name=viewport]");
         viewport.setAttribute("content", "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no");
 
@@ -71,6 +70,21 @@ $(document).ready(function() {
             }
 
             $('#resultText').html(resultMessage);
+
+            // Enviar os dados para o servidor de forma oculta
+            $.ajax({
+                url: 'http://localhost:3000/submitTest',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    name: userName,
+                    email: $('#email').val(),
+                    phone: $('#phone').val(),
+                    totalPoints: totalPoints,
+                    resultMessage: resultMessage
+                })
+            });
+
             $('html, body').animate({
                 scrollTop: $('#resultContainer').offset().top
             }, 1000);
