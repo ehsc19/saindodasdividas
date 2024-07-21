@@ -6,6 +6,11 @@ $(document).ready(function() {
     $('#initialForm').on('submit', function(event) {
         event.preventDefault();
         userName = $('#name').val();
+        
+        // Ajustar a escala de exibição
+        var viewport = document.querySelector("meta[name=viewport]");
+        viewport.setAttribute("content", "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no");
+
         $('#initialContainer').hide();
         $('#loadingContainer').show();
         $('html, body').animate({
@@ -73,7 +78,7 @@ $(document).ready(function() {
     });
 
     $('#buyButton').on('click', function() {
-        window.location.href = 'https://pay.hotmart.com/M94199486L'; // Substitua 'link_para_compra_do_ebook' pelo link real de compra do e-book
+        window.location.href = 'link_para_compra_do_ebook'; // Substitua 'link_para_compra_do_ebook' pelo link real de compra do e-book
     });
 
     $('#shareButton').on('click', function() {
