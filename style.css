@@ -1,71 +1,28 @@
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f2f5;
-    color: #333;
+.btn-buy, .btn-whatsapp {
+    background-color: #28a745; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 12px 20px; /* Espaçamento interno */
+    border: none; /* Remover borda */
+    cursor: pointer; /* Cursor de ponteiro */
+    width: 100%; /* Largura do botão */
+    border-radius: 4px; /* Borda arredondada */
+    font-size: 16px; /* Tamanho da fonte */
+    font-weight: 500; /* Peso da fonte */
+    margin-top: 10px; /* Margem superior */
+    display: flex; /* Alinhar conteúdo */
+    align-items: center; /* Alinhar verticalmente */
+    justify-content: center; /* Centralizar horizontalmente */
+    gap: 10px; /* Espaçamento entre ícone e texto */
 }
-.container {
-    padding: 20px;
-    max-width: 600px;
-    margin: 30px auto;
-    background-color: white;
-    color: #4a4a4a;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+
+.btn-buy:hover, .btn-whatsapp:hover {
+    background-color: #218838; /* Cor de fundo ao passar o mouse */
 }
-.header {
-    margin-bottom: 20px;
+
+.btn-whatsapp img {
+    margin-right: 8px; /* Espaço entre o ícone e o texto */
 }
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-}
-.form-group input, .form-group select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-}
-.btn {
-    background-color: #0056b3;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 500;
-}
-.btn:hover {
-    background-color: #004085;
-}
-.radio-group, .checkbox-group {
-    padding: 0;
-    margin: 8px 0;
-}
-.radio-group label, .checkbox-group label {
-    display: inline-block;
-    margin-right: 10px;
-    vertical-align: middle;
-}
-.radio-group input, .checkbox-group input {
-    vertical-align: middle;
-    margin-right: 5px;
-}
+
 .video-container {
     margin: 20px 0;
-}
-@media (max-width: 600px) {
-    .container {
-        width: 90%;
-        padding: 15px;
-    }
 }

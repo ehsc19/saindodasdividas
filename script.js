@@ -11,7 +11,7 @@ $(document).ready(function() {
         setTimeout(function() {
             $('#loadingContainer').hide();
             $('#testContainer').show();
-        }, 5000); // Tempo da animação de carregamento
+        }, 5000);
     });
 
     $('#debtTestForm').on('submit', function(event) {
@@ -57,7 +57,7 @@ $(document).ready(function() {
             }
 
             $('#resultText').html(resultMessage);
-        }, 5000); // Tempo da animação de processamento
+        }, 5000);
     });
 
     $('#buyButton').on('click', function() {
