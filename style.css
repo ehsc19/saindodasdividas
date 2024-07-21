@@ -105,8 +105,9 @@ body {
 /* Responsividade */
 @media (max-width: 600px) {
     .container {
-        width: 90%;
+        width: 100%;
         padding: 15px;
+        box-sizing: border-box; /* Garantir que o padding não ultrapasse a largura da tela */
     }
     
     .btn-buy, .btn-whatsapp {
