@@ -19,7 +19,9 @@
     background-color: #218838; /* Cor de fundo ao passar o mouse */
 }
 
-.btn-whatsapp img {
+.whatsapp-icon {
+    width: 24px; /* Largura do ícone */
+    height: 24px; /* Altura do ícone */
     margin-right: 8px; /* Espaço entre o ícone e o texto */
 }
 
