@@ -23,6 +23,15 @@
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             text-align: center;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+        }
+        .hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .visible {
+            opacity: 1;
+            visibility: visible;
         }
         .header {
             margin-bottom: 20px;
@@ -168,7 +177,7 @@
     </style>
 </head>
 <body>
-    <div class="container" id="initialContainer">
+    <div class="container visible" id="initialContainer">
         <div class="header">
             <h1>Descubra Agora Como Está Sua Situação Financeira!</h1>
         </div>
@@ -191,10 +200,10 @@
             </form>
         </div>
     </div>
-    <div class="container" id="loadingContainer">
+    <div class="container hidden" id="loadingContainer">
         <p>AGUARDE ENQUANTO PREPARAMOS SEU TESTE</p>
     </div>
-    <div class="container" id="testContainer" style="display: none;">
+    <div class="container hidden" id="testContainer">
         <h2>Responda ao Teste abaixo</h2>
         <div class="divider"></div>
         <form id="debtTestForm">
@@ -262,26 +271,26 @@
                 <input type="radio" name="savingMoney" value="-3" required> Sim
                 <input type="radio" name="savingMoney" value="1"> Não
             </div>
-            <button type="submit" class="btn">RESULTADO</button>
+            <button type="submit" class="btn">Calcular Pontuação</button>
         </form>
     </div>
-    <div class="container" id="processingContainer" style="display: none;">
+    <div class="container hidden" id="processingContainer">
         <p>ELABORANDO SEU RESULTADO</p>
     </div>
-<div class="container" id="resultContainer" style="display: none;">
-    <div class="video-container">
-        <video id="resultVideo" controls>
-            <source src="https://drive.google.com/uc?export=download&id=1Qf1Iw3u2CdleyB2e5dR4zI4iQwAGqKv7" type="video/mp4">
-            Seu navegador não suporta a tag de vídeo.
-        </video>
+    <div class="container hidden" id="resultContainer">
+        <div class="video-container">
+            <video id="resultVideo" controls>
+                <source src="https://drive.google.com/uc?export=download&id=1Qf1Iw3u2CdleyB2e5dR4zI4iQwAGqKv7" type="video/mp4">
+                Seu navegador não suporta a tag de vídeo.
+            </video>
+        </div>
+        <div id="resultText" style="text-align: justify;"></div>
+        <button class="btn-buy" id="buyButton">Compre o E-book Guia Prático Como Sair das Dívidas</button>
+        <button class="btn-whatsapp" id="shareButton">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+            Compartilhe Esse Teste
+        </button>
     </div>
-    <div id="resultText" style="text-align: justify;"></div>
-    <button class="btn-buy" id="buyButton">Compre o E-book Guia Prático Como Sair das Dívidas</button>
-    <button class="btn-whatsapp" id="shareButton">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
-        Compartilhe Esse Teste
-    </button>
-</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script>
@@ -290,14 +299,20 @@
 
             let userName = '';
 
+            function showContainer(hideSelector, showSelector) {
+                $(hideSelector).removeClass('visible').addClass('hidden');
+                setTimeout(function() {
+                    $(hideSelector).hide();
+                    $(showSelector).show().removeClass('hidden').addClass('visible');
+                }, 500);
+            }
+
             $('#initialForm').on('submit', function(event) {
                 event.preventDefault();
                 userName = $('#name').val();
-                $('#initialContainer').hide();
-                $('#loadingContainer').show();
+                showContainer('#initialContainer', '#loadingContainer');
                 setTimeout(function() {
-                    $('#loadingContainer').hide();
-                    $('#testContainer').show();
+                    showContainer('#loadingContainer', '#testContainer');
                 }, 5000); // Tempo da animação de carregamento
             });
 
@@ -316,11 +331,8 @@
                 formData.getAll('streamingServices').forEach(() => totalPoints += 0.5);
                 totalPoints += parseFloat(formData.get('savingMoney'));
 
-                $('#testContainer').hide();
-                $('#processingContainer').show();
+                showContainer('#testContainer', '#processingContainer');
                 setTimeout(function() {
-                    $('#processingContainer').hide();
-                    $('#resultContainer').show();
                     const video = $('#resultVideo')[0];
                     video.load();
                     video.play().catch(error => {
@@ -344,6 +356,7 @@
                     }
 
                     $('#resultText').html(resultMessage);
+                    showContainer('#processingContainer', '#resultContainer');
                 }, 5000); // Tempo da animação de processamento
             });
 
