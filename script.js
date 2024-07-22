@@ -21,7 +21,7 @@ $(document).ready(function() {
             $('html, body').animate({
                 scrollTop: $('#testContainer').offset().top
             }, 1000);
-        }, 2000);
+        }, 2000); // Tempo da animação de carregamento reduzido para 2 segundos
     });
 
     $('#debtTestForm').on('submit', function(event) {
@@ -88,11 +88,11 @@ $(document).ready(function() {
             $('html, body').animate({
                 scrollTop: $('#resultContainer').offset().top
             }, 1000);
-        }, 2000);
+        }, 2000); // Tempo da animação de processamento reduzido para 2 segundos
     });
 
     $('#buyButton').on('click', function() {
-        window.location.href = 'link_para_compra_do_ebook'; // Substitua 'link_para_compra_do_ebook' pelo link real de compra do e-book
+        window.location.href = 'https://pay.hotmart.com/M94199486L'; // Substitua 'link_para_compra_do_ebook' pelo link real de compra do e-book
     });
 
     $('#shareButton').on('click', function() {
