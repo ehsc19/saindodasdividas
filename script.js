@@ -21,7 +21,7 @@ $(document).ready(function() {
             $('html, body').animate({
                 scrollTop: $('#testContainer').offset().top
             }, 1000);
-        }, 5000);
+        }, 2000);
     });
 
     $('#debtTestForm').on('submit', function(event) {
@@ -88,7 +88,7 @@ $(document).ready(function() {
             $('html, body').animate({
                 scrollTop: $('#resultContainer').offset().top
             }, 1000);
-        }, 5000);
+        }, 2000);
     });
 
     $('#buyButton').on('click', function() {
