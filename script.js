@@ -10,18 +10,18 @@ $(document).ready(function() {
         var viewport = document.querySelector("meta[name=viewport]");
         viewport.setAttribute("content", "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no");
 
-        $('#initialContainer').hide();
-        $('#loadingContainer').show();
-        $('html, body').animate({
-            scrollTop: $('#loadingContainer').offset().top
-        }, 1000);
-        setTimeout(function() {
-            $('#loadingContainer').hide();
-            $('#testContainer').show();
-            $('html, body').animate({
-                scrollTop: $('#testContainer').offset().top
-            }, 1000);
-        }, 1000);
+ $('#initialContainer').hide();
+$('#loadingContainer').show();
+$('html, body').animate({
+    scrollTop: $('#loadingContainer').offset().top - ($(window).height() / 2) + ($('#loadingContainer').outerHeight() / 2)
+}, 1000);
+setTimeout(function() {
+    $('#loadingContainer').hide();
+    $('#testContainer').show();
+    $('html, body').animate({
+        scrollTop: $('#testContainer').offset().top - ($(window).height() / 2) + ($('#testContainer').outerHeight() / 2)
+    }, 1000);
+}, 1000);
     });
 
     $('#debtTestForm').on('submit', function(event) {
