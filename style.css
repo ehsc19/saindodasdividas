@@ -1,122 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f0f2f5;
     color: #333;
 }
-
 .container {
     padding: 20px;
     max-width: 600px;
     margin: 30px auto;
     background-color: white;
     color: #4a4a4a;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
-
 .header {
     margin-bottom: 20px;
 }
-
 .form-group {
     margin-bottom: 20px;
     text-align: left;
 }
-
 .form-group label {
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
 }
-
 .form-group input, .form-group select {
     width: 100%;
-    padding: 10px;
-    border-radius: 4px;
+    padding: 12px;
+    border-radius: 6px;
     border: 1px solid #ccc;
 }
-
 .btn {
     background-color: #0056b3;
     color: white;
-    padding: 12px 20px;
+    padding: 14px 22px;
     border: none;
     cursor: pointer;
     width: 100%;
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 6px;
+    font-size: 18px;
     font-weight: 500;
+    transition: background-color 0.3s;
 }
-
 .btn:hover {
     background-color: #004085;
 }
-
 .radio-group, .checkbox-group {
     padding: 0;
-    margin: 8px 0;
+    margin: 10px 0;
 }
-
 .radio-group label, .checkbox-group label {
     display: inline-block;
     margin-right: 10px;
     vertical-align: middle;
 }
-
 .radio-group input, .checkbox-group input {
     vertical-align: middle;
     margin-right: 5px;
 }
-
-.btn-buy, .btn-whatsapp {
-    background-color: #28a745; /* Cor de fundo */
-    color: white; /* Cor do texto */
-    padding: 12px 20px; /* Espaçamento interno */
-    border: none; /* Remover borda */
-    cursor: pointer; /* Cursor de ponteiro */
-    width: 100%; /* Largura do botão */
-    border-radius: 4px; /* Borda arredondada */
-    font-size: 16px; /* Tamanho da fonte */
-    font-weight: 500; /* Peso da fonte */
-    margin-top: 10px; /* Margem superior */
-    display: flex; /* Alinhar conteúdo */
-    align-items: center; /* Alinhar verticalmente */
-    justify-content: center; /* Centralizar horizontalmente */
-    gap: 10px; /* Espaçamento entre ícone e texto */
-}
-
-.btn-buy:hover, .btn-whatsapp:hover {
-    background-color: #218838; /* Cor de fundo ao passar o mouse */
-}
-
-.whatsapp-icon {
-    width: 24px; /* Largura do ícone */
-    height: 24px; /* Altura do ícone */
-    margin-right: 8px; /* Espaço entre o ícone e o texto */
-}
-
-.video-container {
-    margin: 20px 0;
-}
-
-/* Responsividade */
 @media (max-width: 600px) {
     .container {
-        width: 100%;
+        width: 90%;
         padding: 15px;
-        box-sizing: border-box; /* Garantir que o padding não ultrapasse a largura da tela */
     }
-    
-    .btn-buy, .btn-whatsapp {
-        font-size: 14px; /* Reduzir o tamanho da fonte para telas menores */
-        padding: 10px 15px; /* Ajustar o espaçamento interno */
-    }
-    
-    .whatsapp-icon {
-        width: 20px; /* Ajustar o tamanho do ícone para telas menores */
-        height: 20px; /* Ajustar o tamanho do ícone para telas menores */
-    }
+}
+.video-container {
+    max-width: 80%;
+    max-height: 80%;
+    margin: 30px auto;
+    display: none;
+}
+video {
+    width: 100%;
+    height: auto;
+}
+#loadingContainer, #processingContainer {
+    display: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.loading-animation {
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #333;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+#resultContainer {
+    display: none;
+    margin-top: 20px;
+}
+#resultText {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: justify;
+}
+.btn-buy {
+    background-color: #28a745;
+    color: white;
+    padding: 14px 22px;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+.btn-buy:hover {
+    background-color: #218838;
+}
+.btn-whatsapp {
+    background-color: #25D366;
+    color: white;
+    padding: 14px 22px;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-whatsapp:hover {
+    background-color: #1EBE57;
+}
+.btn-whatsapp img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+.divider {
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
 }

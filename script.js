@@ -10,18 +10,18 @@ $(document).ready(function() {
         var viewport = document.querySelector("meta[name=viewport]");
         viewport.setAttribute("content", "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no");
 
- $('#initialContainer').hide();
-$('#loadingContainer').show();
-$('html, body').animate({
-    scrollTop: $('#loadingContainer').offset().top - ($(window).height() / 2) + ($('#loadingContainer').outerHeight() / 2)
-}, 1000);
-setTimeout(function() {
-    $('#loadingContainer').hide();
-    $('#testContainer').show();
-    $('html, body').animate({
-        scrollTop: $('#testContainer').offset().top - ($(window).height() / 2) + ($('#testContainer').outerHeight() / 2)
-    }, 1000);
-}, 1000);
+        $('#initialContainer').hide();
+        $('#loadingContainer').show();
+        $('html, body').animate({
+            scrollTop: $('#loadingContainer').offset().top
+        }, 1000);
+        setTimeout(function() {
+            $('#loadingContainer').hide();
+            $('#testContainer').show();
+            $('html, body').animate({
+                scrollTop: $('#testContainer').offset().top
+            }, 1000);
+        }, 3000); // Reduzido para 3 segundos
     });
 
     $('#debtTestForm').on('submit', function(event) {
@@ -88,11 +88,11 @@ setTimeout(function() {
             $('html, body').animate({
                 scrollTop: $('#resultContainer').offset().top
             }, 1000);
-        }, 2000); // Tempo da animação de processamento alterado para 2 segundos
+        }, 3000); // Reduzido para 3 segundos
     });
 
     $('#buyButton').on('click', function() {
-        window.location.href = 'link_para_compra_do_ebook'; // Substitua 'link_para_compra_do_ebook' pelo link real de compra do e-book
+        window.location.href = 'https://pay.hotmart.com/M94199486L'; // Substitua 'link_para_compra_do_ebook' pelo link real de compra do e-book
     });
 
     $('#shareButton').on('click', function() {

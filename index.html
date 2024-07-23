@@ -5,179 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Descubra Sua Situação Financeira</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f2f5;
-            color: #333;
-        }
-        .container {
-            padding: 20px;
-            max-width: 600px;
-            margin: 30px auto;
-            background-color: white;
-            color: #4a4a4a;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
-        }
-        .hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        .visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        .header {
-            margin-bottom: 20px;
-        }
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 12px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-        }
-        .btn {
-            background-color: #0056b3;
-            color: white;
-            padding: 14px 22px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            border-radius: 6px;
-            font-size: 18px;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        .btn:hover {
-            background-color: #004085;
-        }
-        .radio-group, .checkbox-group {
-            padding: 0;
-            margin: 10px 0;
-        }
-        .radio-group label, .checkbox-group label {
-            display: inline-block;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
-        .radio-group input, .checkbox-group input {
-            vertical-align: middle;
-            margin-right: 5px;
-        }
-        @media (max-width: 600px) {
-            .container {
-                width: 90%;
-                padding: 15px;
-            }
-        }
-        .video-container {
-            max-width: 80%;
-            max-height: 80%;
-            margin: 30px auto;
-            display: none;
-        }
-        video {
-            width: 100%;
-            height: auto;
-        }
-        #loadingContainer, #processingContainer {
-            display: none;
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            text-align: center;
-            margin-top: 20px;
-        }
-        #loadingContainer::before, #processingContainer::before {
-            content: '';
-            display: block;
-            margin: 0 auto 10px;
-            width: 40px;
-            height: 40px;
-            border: 4px solid #333;
-            border-top: 4px solid transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        #resultContainer {
-            display: none;
-            margin-top: 20px;
-        }
-        #resultText {
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            text-align: justify;
-        }
-        .btn-buy {
-            background-color: #28a745;
-            color: white;
-            padding: 14px 22px;
-            border: none;
-            cursor: pointer;
-            width: auto;
-            border-radius: 6px;
-            font-size: 18px;
-            font-weight: 500;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-        }
-        .btn-buy:hover {
-            background-color: #218838;
-        }
-        .btn-whatsapp {
-            background-color: #25D366;
-            color: white;
-            padding: 14px 22px;
-            border: none;
-            cursor: pointer;
-            width: auto;
-            border-radius: 6px;
-            font-size: 18px;
-            font-weight: 500;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .btn-whatsapp:hover {
-            background-color: #1EBE57;
-        }
-        .btn-whatsapp img {
-            width: 24px;
-            height: 24px;
-            margin-right: 8px;
-        }
-        .divider {
-            height: 1px;
-            background-color: #ddd;
-            margin: 20px 0;
-        }
-    </style>
 </head>
 <body>
-    <div class="container visible" id="initialContainer">
+    <div class="container" id="initialContainer">
         <div class="header">
             <h1>Descubra Agora Como Está Sua Situação Financeira!</h1>
         </div>
@@ -200,10 +30,11 @@
             </form>
         </div>
     </div>
-    <div class="container hidden" id="loadingContainer">
-        <p><br><br><br><br>AGUARDE ENQUANTO PREPARAMOS SEU TESTE</p>
+    <div class="container" id="loadingContainer">
+        <p>AGUARDE ENQUANTO PREPARAMOS SEU TESTE</p>
+        <div class="loading-animation"></div>
     </div>
-    <div class="container hidden" id="testContainer">
+    <div class="container" id="testContainer" style="display: none;">
         <h2>Responda ao Teste abaixo</h2>
         <div class="divider"></div>
         <form id="debtTestForm">
@@ -271,13 +102,14 @@
                 <input type="radio" name="savingMoney" value="-3" required> Sim
                 <input type="radio" name="savingMoney" value="1"> Não
             </div>
-            <button type="submit" class="btn">Calcular Pontuação</button>
+            <button type="submit" class="btn">RESULTADO</button>
         </form>
     </div>
-    <div class="container hidden" id="processingContainer">
+    <div class="container" id="processingContainer" style="display: none;">
         <p>ELABORANDO SEU RESULTADO</p>
+        <div class="loading-animation"></div>
     </div>
-    <div class="container hidden" id="resultContainer">
+    <div class="container" id="resultContainer" style="display: none;">
         <div class="video-container">
             <video id="resultVideo" controls>
                 <source src="https://drive.google.com/uc?export=download&id=1Qf1Iw3u2CdleyB2e5dR4zI4iQwAGqKv7" type="video/mp4">
@@ -293,84 +125,6 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#phone').mask('(00) 00000-0000');
-
-            let userName = '';
-
-            function showContainer(hideSelector, showSelector) {
-                $(hideSelector).removeClass('visible').addClass('hidden');
-                setTimeout(function() {
-                    $(hideSelector).hide();
-                    $(showSelector).show().removeClass('hidden').addClass('visible');
-                }, 500);
-            }
-
-            $('#initialForm').on('submit', function(event) {
-                event.preventDefault();
-                userName = $('#name').val();
-                showContainer('#initialContainer', '#loadingContainer');
-                setTimeout(function() {
-                    showContainer('#loadingContainer', '#testContainer');
-                }, 5000); // Tempo da animação de carregamento
-            });
-
-            $('#debtTestForm').on('submit', function(event) {
-                event.preventDefault();
-
-                let totalPoints = 0;
-                const formData = new FormData(event.target);
-
-                totalPoints += parseFloat(formData.get('incomeSource'));
-                totalPoints += parseFloat(formData.get('housing'));
-                totalPoints += parseFloat(formData.get('vehicleLoan'));
-                totalPoints += parseFloat(formData.get('creditCards'));
-                totalPoints += parseFloat(formData.get('cardLate'));
-                totalPoints += parseFloat(formData.get('overdraftUsed'));
-                formData.getAll('streamingServices').forEach(() => totalPoints += 0.5);
-                totalPoints += parseFloat(formData.get('savingMoney'));
-
-                showContainer('#testContainer', '#processingContainer');
-                setTimeout(function() {
-                    const video = $('#resultVideo')[0];
-                    video.load();
-                    video.play().catch(error => {
-                        console.error('Erro ao reproduzir o vídeo:', error);
-                    });
-
-                    let resultMessage;
-
-                    if (totalPoints <= 4) {
-                        resultMessage = `${userName},<br><br>Parabéns! Seu resultado na nossa avaliação financeira indica que você está no Nível 1 de Endividamento, o que significa que suas dívidas não ultrapassam 10% da sua renda mensal.<br> Isso é excelente e mostra que você tem uma aparente gestão financeira saudável.<br>Continue praticando bons hábitos financeiros e explore maneiras de investir seu dinheiro para garantir um futuro ainda mais seguro.<br>`;
-                    } else if (totalPoints <= 8) {
-                        resultMessage = `${userName},<br><br>Você está no Nível 2 de Endividamento. Isso significa que suas dívidas podem representar entre 10% e 30% da sua renda mensal. É um bom momento para revisar seus gastos e assegurar que seu endividamento não aumente.<br>Considere criar um plano de pagamento mais estruturado ou ajustar seu orçamento para evitar que seu endividamento cresça.`;
-                    } else if (totalPoints <= 13) {
-                        resultMessage = `${userName},<br><br>Você está no Nível 3 de Endividamento, com dívidas que podem representar entre 30% e 50% da sua renda. Isso indica que você pode estar enfrentando alguns desafios financeiros.<br><br>É importante que comece a reduzir suas dívidas, como consultar um conselheiro financeiro ou reestruturar suas finanças para evitar problemas maiores no futuro.`;
-                    } else if (totalPoints <= 16) {
-                        resultMessage = `${userName},<br><br>Você foi classificado no Nível 4 de Endividamento, com dívidas geralmente entre 50% e 70% da sua renda. Esta é uma situação que requer ações imediatas para evitar maiores complicações financeiras.<br><br>É crucial que considere maneiras de reduzir suas dívidas URGENTEMENTE, como negociar com credores ou cortar despesas não essenciais.`;
-                    } else if (totalPoints <= 18) {
-                        resultMessage = `${userName},<br><br>Você está no Nível 5 de Endividamento, suas dívidas podem alcançar entre 70% e 100% da sua renda. Esta é uma situação CRÍTICA que pode impactar significativamente sua qualidade de vida.<br><br>É essencial buscar ajuda profissional para reestruturar suas dívidas e considerar maneiras de aumentar sua renda para lidar com esta condição.`;
-                    } else {
-                        resultMessage = `${userName},<br><br>Seu nível de endividamento infelizmente foi classificado como Nível 6, o que pode indicar uma possível insolvência, pois suas dívidas podem ultrapassar sua renda mensal. <span style="font-weight: bold; color: red;"><br><br>ESTÁ É UMA CONDIÇÃO BASTANTE SÉRIA QUE REQUER AÇÃO IMEDIATA E PROFISSIONAL.</span><br><br>Por favor, considere possíveis soluções, como a reestruturação de dívidas ou até mesmo procedimentos legais, se necessário.`;
-                    }
-
-                    $('#resultText').html(resultMessage);
-                    showContainer('#processingContainer', '#resultContainer');
-                }, 5000); // Tempo da animação de processamento
-            });
-
-            $('#buyButton').on('click', function() {
-                window.location.href = 'https://pay.hotmart.com/M94199486L'; // Substitua 'link_para_compra_do_ebook' pelo link real de compra do e-book
-            });
-
-            $('#shareButton').on('click', function() {
-                const pageUrl = encodeURIComponent(window.location.href);
-                const message = encodeURIComponent('Confira seu nível de endividamento com este teste: ' + pageUrl);
-                const whatsappUrl = `https://api.whatsapp.com/send?text=${message}`;
-                window.open(whatsappUrl, '_blank');
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
