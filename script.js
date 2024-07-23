@@ -21,7 +21,7 @@ $(document).ready(function() {
             $('html, body').animate({
                 scrollTop: $('#testContainer').offset().top
             }, 1000);
-        }, 5000);
+        }, 1000);
     });
 
     $('#debtTestForm').on('submit', function(event) {
